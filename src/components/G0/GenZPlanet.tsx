@@ -9,10 +9,10 @@ export function GenZPlanet(props: ThreeElements["mesh"]) {
   const [selectedGenZIdx, setSelectedGenZIdx] = useState(0);
   
   const textures = [
-    './genz-pink.jpeg',
-    './genz-yellow.jpg',
-    './genz.jpg',
-    './genz-mix.jpeg',
+    './images/genz-pink.jpeg',
+    './images/genz-yellow.jpg',
+    './images/genz.jpg',
+    './images/genz-mix.jpeg',
   ]
   const textureArr = useLoader(TextureLoader, textures);
 
