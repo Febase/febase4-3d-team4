@@ -28,7 +28,7 @@ export function GenZPlanet(props: ThreeElements["mesh"]) {
       ref={ref}
       onClick={onPlanetClick}
     >
-     <sphereBufferGeometry attach="geometry" args={[1, 28,28]} scale={4} />
+     <sphereBufferGeometry attach="geometry" args={[1, 28,28]} scale={8} />
      <meshStandardMaterial map={textureArr[selectedGenZIdx]} attach="material" />
     </mesh>
   );

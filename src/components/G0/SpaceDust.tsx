@@ -1,34 +1,22 @@
 import * as THREE from 'three';
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
+import getRandomRange from '../../utils/getRandomRange';
 
 export function SpaceDust({ count }) {
   const mesh = useRef();
   const light = useRef();
 
-  const range = (min:number, max:number) => {
-    if (max === undefined) {
-      max = min;
-      min = 0;
-    }
-
-    if (typeof min !== 'number' || typeof max !== 'number') {
-      throw new TypeError('Expected all arguments to be numbers');
-    }
-    return (Math.random()) * (max - min) + min;
-  }
-
-
   // Generate some random positions, speed factors and timings
   const particles = useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
-      const time = range(0, 100);
-      const factor = range(20, 120);
-      const speed = range(0.01, 0.015) / 2;
-      const x = range(-50, 50);
-      const y = range(-50, 50);
-      const z = range(-50, 50);
+      const time = getRandomRange(0, 100);
+      const factor = getRandomRange(20, 120);
+      const speed = getRandomRange(0.01, 0.015) / 2;
+      const x = getRandomRange(-50, 50);
+      const y = getRandomRange(-50, 50);
+      const z = getRandomRange(-50, 50);
 
       temp.push({ time, factor, speed, x, y, z });
     }

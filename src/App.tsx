@@ -15,7 +15,7 @@ export function ThreeCanvas() {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Box position={[-1.2, 0, 0]} />
-        <G0Universe />
+        <G0Universe x={1.2} y={0} z={0} />
       </Canvas>
     </div>
   );
