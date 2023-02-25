@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useDecelerateInterval } from "../hooks/useDecelerateInterval";
+import { EUNSIK_SPACE_POSITION } from "../constant";
 
 interface SpaceShipProps {
   timer?: number;
@@ -27,7 +28,11 @@ export function SpaceShip({ timer = 2000 }: SpaceShipProps) {
   useEffect(() => {
     const x = Math.random() * 3 - 1.5;
     const y = Math.random() * 3 - 1.5;
-    spaceShipRef.current.position.set(0, x, y);
+    spaceShipRef.current.position.set(
+      EUNSIK_SPACE_POSITION,
+      EUNSIK_SPACE_POSITION + x,
+      EUNSIK_SPACE_POSITION + y
+    );
     spaceShipRef.current.rotateY(-1.6);
     spaceShipRef.current.scale.set(0, 0, 0);
     const timeout = setTimeout(() => {

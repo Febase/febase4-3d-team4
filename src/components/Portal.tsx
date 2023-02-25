@@ -1,6 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
+import { EUNSIK_SPACE_POSITION } from "../constant";
 
 export function Portal() {
   const { nodes, materials } = useGLTF("/lightening/scene.gltf") as any;
@@ -15,6 +16,11 @@ export function Portal() {
     }
   });
   useEffect(() => {
+    portalRef.current.position.set(
+      EUNSIK_SPACE_POSITION,
+      EUNSIK_SPACE_POSITION,
+      EUNSIK_SPACE_POSITION
+    );
     portalRef.current.scale.set(0, 0, 0);
     portalRef.current.rotation.y = 1.6;
 

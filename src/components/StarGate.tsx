@@ -2,12 +2,21 @@ import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { EUNSIK_SPACE_POSITION } from "../constant";
 
 export function StarGage() {
   const { nodes, materials } = useGLTF("/stargate/scene.gltf") as any;
   const starGateRef = useRef<THREE.Group>(null!);
 
   useFrame((_, delta) => (starGateRef.current.rotation.x += delta * 0.1));
+
+  useEffect(() => {
+    starGateRef.current.position.set(
+      EUNSIK_SPACE_POSITION,
+      EUNSIK_SPACE_POSITION,
+      EUNSIK_SPACE_POSITION
+    );
+  }, []);
 
   return (
     <group ref={starGateRef} dispose={null}>
