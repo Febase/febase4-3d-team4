@@ -5,6 +5,7 @@ import { SpaceShip } from "./components/SpaceShip";
 import { StarGage } from "./components/StarGate";
 import { GlobalStyle } from "./styles/Global";
 import { Portal } from "./components/Portal";
+import G0Universe from "./components/G0/";
 
 export function ThreeCanvas() {
   return (
@@ -22,6 +23,7 @@ export function ThreeCanvas() {
         <SpaceShip timer={6500} />
         <StarGage />
         <Portal />
+        <G0Universe />
       </Canvas>
     </div>
   );
