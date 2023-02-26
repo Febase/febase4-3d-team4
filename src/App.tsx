@@ -1,16 +1,21 @@
 import { css } from "@emotion/react";
 import { Canvas } from "@react-three/fiber";
 import { Box } from "./components/Box";
+import * as THREE from "three";
 import G0Universe from "./components/G0/";
 
 export function ThreeCanvas() {
   return (
     <div css={canvasCss}>
-      <Canvas>
+      <Canvas
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.Uncharted2ToneMapping
+          gl.setClearColor(new THREE.Color('#020207'))
+      }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Box position={[-1.2, 0, 0]} />
-        <G0Universe />
+        <G0Universe x={1.2} y={0} z={0} />
       </Canvas>
     </div>
   );
