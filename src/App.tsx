@@ -1,15 +1,28 @@
 import { css } from "@emotion/react";
 import { Canvas } from "@react-three/fiber";
-import { Box } from "./components/Box";
+import { OrbitControls } from "@react-three/drei";
+import { SpaceShip } from "./components/SpaceShip";
+import { StarGage } from "./components/StarGate";
+import { GlobalStyle } from "./styles/Global";
+import { Portal } from "./components/Portal";
 import G0Universe from "./components/G0/";
 
 export function ThreeCanvas() {
   return (
     <div css={canvasCss}>
       <Canvas>
+        {/* Environments */}
+        <GlobalStyle />
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
+        <OrbitControls />
+        {/* Models */}
+        <SpaceShip timer={5000} />
+        <SpaceShip timer={5500} />
+        <SpaceShip timer={6000} />
+        <SpaceShip timer={6500} />
+        <StarGage />
+        <Portal />
         <G0Universe />
       </Canvas>
     </div>
@@ -19,4 +32,5 @@ export function ThreeCanvas() {
 const canvasCss = css({
   width: "100vw",
   height: "100vh",
+  backgroundColor: "#000",
 });
